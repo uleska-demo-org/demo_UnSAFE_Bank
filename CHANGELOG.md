@@ -28,3 +28,5 @@ Released a completely dockerized _UnSAFE Bank Web application_.
 ### What's New
 
 Released _UnSAFE Bank iOS application_ and dockerized backend.
+
+New Text
