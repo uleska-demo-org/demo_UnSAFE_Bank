@@ -23,4 +23,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: curl -X GET "https://demo.uleska.com/SecureDesigner/api/v1/applications/c4994932-6d63-44f5-ab0d-fed18684864b/versions/62a4ab88-1691-42b3-8b19-eebac6bd7e04/scan" -H "accept: */*" -H "authorization: Basic Z2FyeS5yb2JpbnNvbkB1bGVza2EuY29tOkJvc3RvbjEyMw=="
+        run: "curl -X GET \"https://demo.uleska.com/SecureDesigner/api/v1/applications/c4994932-6d63-44f5-ab0d-fed18684864b/versions/62a4ab88-1691-42b3-8b19-eebac6bd7e04/scan\" -H \"accept: */*\" -H \"authorization: Basic Z2FyeS5yb2JpbnNvbkB1bGVza2EuY29tOkJvc3RvbjEyMw==\" "
