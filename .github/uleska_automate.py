@@ -226,7 +226,10 @@ for iss in latest_report_issues:
     #print ("Latest Reported Issue with title [" + iss.title + "] and tool [" + iss.tool + "] and cost [" + str(iss.total_cost) + "]" )
     total_risk = total_risk + iss.total_cost
 
-print ("\nTotal risk for latest security check          = $" + str(total_risk))
+
+print ("\nLatest security toolkit run:")
+print ("    Total risk:                   = $" + str( f'{total_risk:,}' ))
+print ("    Total issues:                 = " + str( len( latest_report_issues ) ) )
 
 
 
@@ -289,19 +292,27 @@ for pen_iss in penultumate_report_issues:
     #print ("Penultumate Reported Issue with title [" + pen_iss.title + "] and tool [" + pen_iss.tool + "] and cost [" + str(pen_iss.total_cost) + "]" )
     pen_total_risk = pen_total_risk + pen_iss.total_cost
 
-print ("\nTotal risk for penultumate security check     = $" + str(pen_total_risk))
+
+print ("\nPrevious security toolkit run:")
+print ("    Total risk:                   = $" + str( f'{pen_total_risk:,}' ))
+print ("    Total issues:                 = " + str( len( penultumate_report_issues ) ) )
         
 if pen_total_risk == total_risk:
-    print ("No change in risk levels since last check\n")
+    print ("\nNo change in risk levels since last check\n")
 elif pen_total_risk > total_risk:
     reduced = pen_total_risk - total_risk
-    print ("\nRisk level has REDUCED by                       $" + str(reduced) + "\n")
+    print ("\n    Risk level has REDUCED by       $" + str( f'{reduced:,}' ))
+    reduced_percentage = ( 100 - ( 100 / pen_total_risk ) * total_risk )
+    print ("    Risk level has REDUCED by       " + str( reduced_percentage )[0:4] + "%\n")
 else:
     increased = total_risk - pen_total_risk
-    print ("\nRisk level has INCREASED by                     $" + str(increased) + "\n")
+    print ("\n    Risk level has INCREASED by    $" + str( f'{increased:,}' ))
+    increased_percentage = ( 100 - ( 100 / total_risk ) * pen_total_risk )
+    print ("    Risk level has INCREASED by     " + str( increased_percentage )[0:4] + "%\n")
     
     
 ### penultumate_report_titles is set, so is latest_report_titles, how do I compare them?
+new_risk = 0
 for latest_title in latest_report_titles:
        
     if latest_title in penultumate_report_titles:
@@ -309,11 +320,15 @@ for latest_title in latest_report_titles:
         continue
     else:
         # It's a new issue
-        print ("NEW ISSUE discovered in this test:")
+        print ("NEW ISSUE in this toolkit run:")
         
         for i in latest_report_issues:
             if i.title == latest_title:
-                print ("        " + i.title + ": from tool [" + i.tool + "]: Risk [$" + str(i.total_cost) + "]" )
+                print ("        " + i.title + ": tool [" + i.tool + "]:     Risk $" + str( f'{i.total_cost:,}' ) + "" )
+                new_risk = new_risk + i.total_cost
+
+if new_risk is not 0:
+    print ("\n    New risk in this tookit run    = $" + str( f'{new_risk:,}'  ) )
                 
                 
 print ("\n")
@@ -324,10 +339,10 @@ for pen_title in penultumate_report_titles:
         # This issue is in both, don't mention
         continue
     else:
-        print ("ISSUE FIXED before this test:")
+        print ("ISSUE FIXED before this toolkit run:")
         
         for i in penultumate_report_issues:
             if i.title == pen_title:
-                print ("        " + i.title + ": from tool [" + i.tool + "]: Risk [$" + str(i.total_cost) +"]" )
+                print ("        " + i.title + ": tool [" + i.tool + "]:     Risk $" + str( f'{i.total_cost:,}' ) +"" )
 
 print ("\n\n")
