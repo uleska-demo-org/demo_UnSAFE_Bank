@@ -161,6 +161,8 @@ if 'reports' in version_info:
         if 'vulnerabilityCount' in report:
             this_report.vulncount = report['vulnerabilityCount']
         
+        
+        
         report_dict.append(this_report)
         
 
@@ -309,7 +311,20 @@ else:
     print ("\n    Risk level has INCREASED by    $" + str( f'{increased:,}' ))
     increased_percentage = ( 100 - ( 100 / total_risk ) * pen_total_risk )
     print ("    Risk level has INCREASED by     " + str( increased_percentage )[0:4] + "%\n")
-    
+
+
+if len(latest_report_issues) == len(penultumate_report_issues):
+    print ("No change in number of issues since last check\n")
+elif len (latest_report_issues) < len(penultumate_report_issues):
+    print("    Number of issues has REDUCED by   " + str ( ( len (penultumate_report_issues) - len(latest_report_issues) ) ) )
+    reduced_issue_percentage = ( 100 - ( 100 / len(penultumate_report_issues) ) * len (latest_report_issues) )
+    print ("    Number of issues has REDUCED by   " + str( reduced_issue_percentage )[0:4] + "%\n")
+else:
+    print("    Number of issues has INCREASED by   " + str( ( len(latest_report_issues) - len(penultumate_report_issues) ) ) )
+    increased_issue_percentage = ( 100 - ( 100 / len (latest_report_issues) ) * len(penultumate_report_issues) )
+    print ("    Number of issues has INCREASED by   " + str( increased_issue_percentage )[0:4] + "%\n")
+print ("\n")
+
     
 ### penultumate_report_titles is set, so is latest_report_titles, how do I compare them?
 new_risk = 0
