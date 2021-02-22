@@ -34,13 +34,10 @@ if args.version is not None:
     
 s = requests.Session()
 
-token = "Bearer 8NZQRMy1LMLUr_e3M1Y48EVeWXB-VYULNYmCzT04ldY"
-
-
 s.headers.update({
     'Content-Type': "application/json",
     'cache-control': "no-cache",
-    'Authorization': "Bearer 8NZQRMy1LMLUr_e3M1Y48EVeWXB-VYULNYmCzT04ldY"
+    'Authorization': "Bearer KUDqreaq8kscNAcncF_e16vQaVxfIGW0TaFA3dNfTXg"
     })
 
 
