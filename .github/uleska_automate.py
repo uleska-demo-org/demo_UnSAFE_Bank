@@ -34,6 +34,7 @@ if args.version is not None:
     
 s = requests.Session()
 
+
 s.headers.update({
     'Content-Type': "application/json",
     'cache-control': "no-cache",
@@ -101,13 +102,13 @@ while scanfinished is False:
         if 'versionId' in scan:
             if scan['versionId'] == version:
                 ### our scan is still running, sleep and return
-                print ("Our scan " + version + " is still running, waiting...\n")
+                print ("Our Toolkit " + version + " is still running, waiting...\n")
                 time.sleep(10)
                 
             else:
                 
                 ### our scan isn't running
-                 print ("Our scan " + version + " is no longer running running\n")
+                 print ("Our Toolkit " + version + " has completed\n")
                  scanfinished = True
                  break
         else:
