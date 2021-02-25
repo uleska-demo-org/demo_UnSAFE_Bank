@@ -307,7 +307,7 @@ elif pen_total_risk > total_risk:
 else:
     increased = total_risk - pen_total_risk
     print ("\n    Risk level has INCREASED by    $" + str( f'{increased:,}' ))
-    increased_percentage = ( 100 - ( 100 / total_risk ) * pen_total_risk )
+    increased_percentage = ( ( ( 100 / pen_total_risk  ) * total_risk ) - 100)
     print ("    Risk level has INCREASED by     " + str( increased_percentage )[0:4] + "%\n")
 
 
@@ -319,7 +319,7 @@ elif len (latest_report_issues) < len(penultumate_report_issues):
     print ("    Number of issues has REDUCED by   " + str( reduced_issue_percentage )[0:4] + "%\n")
 else:
     print("    Number of issues has INCREASED by   " + str( ( len(latest_report_issues) - len(penultumate_report_issues) ) ) )
-    increased_issue_percentage = ( 100 - ( 100 / len (latest_report_issues) ) * len(penultumate_report_issues) )
+    increased_issue_percentage = ( ( ( 100 / len (penultumate_report_issues) ) * len(latest_report_issues) ) - 100 )
     print ("    Number of issues has INCREASED by   " + str( increased_issue_percentage )[0:4] + "%\n")
 print ("\n")
 
