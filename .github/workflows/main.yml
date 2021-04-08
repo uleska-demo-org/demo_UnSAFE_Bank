@@ -24,4 +24,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run Uleska automation
-        run: python3 ${GITHUB_WORKSPACE}/.github/uleska_automate.py --application 15482caf-d286-4fcb-9988-de033ee330f6 --version 49a8f618-65a4-444c-bdda-59d9ecfeb355
+        run: python3 ${GITHUB_WORKSPACE}/.github/uleska_automate.py --application 00b17c86-62f8-4031-8fe9-d7ab319a0c3e --version a2bb3d88-cf9d-496f-9920-bee9122b43a0
