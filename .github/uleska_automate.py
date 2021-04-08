@@ -38,13 +38,13 @@ s = requests.Session()
 s.headers.update({
     'Content-Type': "application/json",
     'cache-control': "no-cache",
-    'Authorization': "Bearer KUDqreaq8kscNAcncF_e16vQaVxfIGW0TaFA3dNfTXg"
+    'Authorization': "Bearer c64Ca28whEAIkFYlzO8clRutrlwVws2pFRwEz09Pm9I"
     })
 
 
 
 #Build API URL
-host = "https://demo.uleska.com/"
+host = "https://uleska-live-one.uleska.com/"
 
 
 
