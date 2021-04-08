@@ -44,7 +44,7 @@ s.headers.update({
 
 
 #Build API URL
-host = "https://demo.uleska.com/"
+host = "https://uleska-live-one.uleska.com/"
 
 
 
