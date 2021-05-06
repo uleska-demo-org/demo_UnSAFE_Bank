@@ -169,6 +169,7 @@ class issue_info:
     title = ""
     tool = ""
     total_cost = 0
+    CVSS = ""
     
 
 latest_report_handle = report_dict[-1]
@@ -217,6 +218,14 @@ for reported_issue in latest_report_info:
     
     if 'totalCost' in reported_issue:
         this_issue.total_cost = reported_issue['totalCost']
+        
+    if 'vulnerabilityDefinition' in reported_issue:
+        for defn in reported_issue['vulnerabilityDefinition']:
+            if 'standards' in defn:
+                for std in defn['standards']:
+                    this_issue.CVSS.append(std['description'])
+                    this_issue.CVSS.append(" : ")
+                    this_issue.CVSS.append(std['title'])
     
     latest_report_issues.append(this_issue)
         
@@ -338,6 +347,7 @@ for latest_title in latest_report_titles:
         for i in latest_report_issues:
             if i.title == latest_title:
                 print ("        " + i.title + ": tool [" + i.tool + "]:     Risk $" + str( f'{i.total_cost:,}' ) + "" )
+                print ("        " + i.title + ": CVSS : " + i.CVSS )
                 new_risk = new_risk + i.total_cost
 
 if new_risk is not 0:
