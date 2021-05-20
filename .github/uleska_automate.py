@@ -179,7 +179,6 @@ latest_report_handle = report_dict[-1]
 
 GetLatestReportsURL = host + "SecureDesigner/api/v1/applications/" + application + "/versions/" + version + "/reports/" + latest_report_handle.id + "/vulnerabilities"
 
-print("\n" + GetLatestReportsURL + "\n")
       
 try:
     StatusResponse = s.request("Get", GetLatestReportsURL)
