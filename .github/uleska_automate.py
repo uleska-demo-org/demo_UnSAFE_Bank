@@ -164,6 +164,9 @@ if 'reports' in version_info:
         report_dict.append(this_report)
         
 
+      
+time.sleep(5)
+
 ####### now we have the latest report, and the one previous to it (for now we're assuming there will be 2)
 class issue_info:
     title = ""
