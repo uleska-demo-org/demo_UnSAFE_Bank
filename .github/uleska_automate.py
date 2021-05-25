@@ -164,6 +164,9 @@ if 'reports' in version_info:
         report_dict.append(this_report)
         
 
+      
+time.sleep(5)
+
 ####### now we have the latest report, and the one previous to it (for now we're assuming there will be 2)
 class issue_info:
     title = ""
@@ -176,6 +179,7 @@ latest_report_handle = report_dict[-1]
 
 GetLatestReportsURL = host + "SecureDesigner/api/v1/applications/" + application + "/versions/" + version + "/reports/" + latest_report_handle.id + "/vulnerabilities"
 
+      
 try:
     StatusResponse = s.request("Get", GetLatestReportsURL)
 except requests.exceptions.RequestException as err:
