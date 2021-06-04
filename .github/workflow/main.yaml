@@ -24,4 +24,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run Uleska automation
-        run: python3 ${GITHUB_WORKSPACE}/.github/uleska_automate.py --application 00b17c86-62f8-4031-8fe9-d7ab319a0c3e --version a2bb3d88-cf9d-496f-9920-bee9122b43a0
+        run: python3 ${GITHUB_WORKSPACE}/.github/uleska-automate.py --uleska_host https://uleska-live-one.uleska.com/ --application_name demo_UnSAFE_Bank --version_name v1 --token c64Ca28whEAIkFYlzO8clRutrlwVws2pFRwEz09Pm9I --test_and_compare
