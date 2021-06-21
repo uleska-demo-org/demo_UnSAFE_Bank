@@ -315,21 +315,26 @@ def run_scan_blocking(host, application, version, token):
             scanfinished = True
             break
         
+        versions_running = []
+
         for scan in running_scans_json:
             if 'versionId' in scan:
-                if scan['versionId'] == version:
-                    ### our scan is still running, sleep and return
-                    print ("Our Toolkit " + version + " is still running, waiting...\n")
-                    time.sleep(10)
-                    
-                else:
-                    
-                    ### our scan isn't running
-                     print ("Our Toolkit " + version + " has completed\n")
-                     scanfinished = True
-                     break
+
+                versions_running.append(scan['versionId'])
+
             else:
                 print ("No versionId in the scan\n")
+
+        print("DEBUG: Versions running = " + str(versions_running) )
+
+        if version in versions_running:
+            print ("Our Toolkit " + version + " is still running, waiting...\n")
+            time.sleep(10)
+        else:
+            print ("Our Toolkit " + version + " has completed\n")
+            scanfinished = True
+            break
+
                 
                 
 
@@ -441,8 +446,8 @@ def get_report_info(host, application, version, token, reports_dict, index):
     
     print ("Getting information on this report")
     
-    # Just wait a few seconds for the background thread to update the report (encase the scan has *just* finished)
-    time.sleep(10)
+    # Just wait a few seconds for the background thread to update the report (encase the scan has *just* finished)  
+    time.sleep(5)
     
     # Get the report id for the scan
     latest_report_handle = reports_dict[index] # -1
