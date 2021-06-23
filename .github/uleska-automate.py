@@ -338,7 +338,7 @@ def run_scan_blocking(host, application, version, token):
             else:
                 print ("No versionId in the scan\n")
 
-        print("DEBUG: Versions running = " + str(versions_running) )
+        #print("DEBUG: Versions running = " + str(versions_running) )
 
         if version in versions_running:
             print ("Our Toolkit " + version + " is still running, waiting...\n")
