@@ -26,4 +26,4 @@ jobs:
       - name: Run Uleska automation
         run: |
           python3 -m pip install requests uleska-automate
-          uleska-automate --uleska_host https://uleska-live-one.uleska.com/ --application_name demo_UnSAFE_Bank --version_name SAST_SCA --token U.6f0e2d81-4eb9-4b49-8163-f77e4fe0b05e.RfsePoczyZ --test_and_compare --debug
+          uleska-automate --uleska_host https://uleska-live-one.uleska.com/ --application_name demo_UnSAFE_Bank --version_name SAST_SCA --token U.6f0e2d81-4eb9-4b49-8163-f77e4fe0b05e.ZHgcSmFiUM --test_and_compare --debug
