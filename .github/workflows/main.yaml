@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
         with:
-          uleska-token $ {{ secrets.UleskaToken }}
+          uleska-token:  ${{ secrets.UleskaToken }}
 
       # Runs a single command using the runners shell
       - name: Run Uleska automation
