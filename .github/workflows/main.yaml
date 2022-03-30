@@ -27,5 +27,5 @@ jobs:
         env:
           ULESKA_TOKEN:  ${{ secrets.UleskaToken }}
         run: |
-          python3 -m pip install requests uleska-automate
-          uleska-automate --uleska_host https://uleska-live-one.uleska.com/ --application_name demo_UnSAFE_Bank --version_name SCA --token $ULESKA_TOKEN --test_and_compare --debug
+          python3 -m pip install uleska-automate==0.6
+          uleska-automate --uleska_host https://uleska-live-one.uleska.com/ --application_name demo_UnSAFE_Bank --version_name SAST --token $ULESKA_TOKEN --test_and_results --toolkit_name "Demo Toolkit"
